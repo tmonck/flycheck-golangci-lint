@@ -38,7 +38,7 @@
   "Path to golangci-lint configuration file if you don't like using default config path .golangci.(yml|toml|json)"
   :safe #'stringp)
 
-(flycheck-def-option-var flycheck-golangci-lint-deadline "1m" golangci-lint
+(flycheck-def-option-var flycheck-golangci-lint-timeout "1m" golangci-lint
   "Timeout for running golangci-lint, 1m by default."
   :safe #'stringp)
 
@@ -88,7 +88,7 @@
 See URL `https://github.com/golangci/golangci-lint'."
   :command ("golangci-lint" "run" "--out-format=checkstyle"
             (option "--config=" flycheck-golangci-lint-config concat)
-            (option "--deadline=" flycheck-golangci-lint-deadline concat)
+            (option "--timeout=" flycheck-golangci-lint-timeout concat)
             (option-flag "--tests" flycheck-golangci-lint-tests)
             (option-flag "--fast" flycheck-golangci-lint-fast)
             (option-flag "--allow-parallel-runners" flycheck-golangci-allow-parallel-runners)
